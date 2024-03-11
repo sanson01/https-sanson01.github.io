@@ -15,7 +15,7 @@ function preload() {
 function setup() {
 	img.loadPixels();
 	createCanvas(cantPixels * tam, cantPixels * tam);
-
+	fill (255);
 	frameRate(1);
 }
 
