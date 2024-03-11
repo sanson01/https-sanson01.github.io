@@ -21,6 +21,7 @@ function setup() {
   createCanvas(720, 1280); // Ajusta el tamaño del lienzo según tus necesidades
   frameRate(30); // Fija la tasa de frames a 1 por segundo
   fill (255);
+  stroke (255);
 }
 
 function draw() {
