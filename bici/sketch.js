@@ -1,6 +1,7 @@
 let images = [];
 let currentIndex = 0;
-let displayDuration = 100; // Duración de cada imagen en milisegundos (0.1 segundos por defecto)
+let seconds_duration = 1;
+let displayDuration = seconds_duration * 1000; // Duración de cada imagen en milisegundos (0.1 segundos por defecto)
 let lastSwitchTime = 0;
 
 function preload() {
@@ -29,11 +30,11 @@ function draw() {
   }
 }
 
-function keyPressed() {
+/*function keyPressed() {
   // Cambiar la duración con las teclas de flecha hacia arriba y abajo
   if (keyCode === UP_ARROW) {
     displayDuration += 50; // Incrementa la duración en 50ms
   } else if (keyCode === DOWN_ARROW) {
     displayDuration = max(50, displayDuration - 50); // Disminuye la duración, mínimo 50ms
   }
-}
+}*/
