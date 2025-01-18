@@ -14,6 +14,7 @@ function preload() {
 function setup() {
   createCanvas(1280, 870); // Tamaño del canvas según las dimensiones de las imágenes
   frameRate(60);
+  lastSwitchTime = millis(); // Asegurarse de inicializar el tiempo al inicio
 }
 
 function draw() {
@@ -22,13 +23,10 @@ function draw() {
   // Mostrar la imagen actual
   image(images[currentIndex], 0, 0, width, height);
 
-  // Convertir seconds_number a milisegundos dinámicamente
-  let displayDuration = seconds_number * 1000;
-
   // Verificar si es hora de cambiar la imagen
-  if (millis() - lastSwitchTime > displayDuration) {
+  if (millis() - lastSwitchTime >= seconds_number * 1000) {
     currentIndex = (currentIndex + 1) % images.length; // Pasar a la siguiente imagen en loop
-    lastSwitchTime = millis();
+    lastSwitchTime = millis(); // Reiniciar el temporizador
   }
 }
 
