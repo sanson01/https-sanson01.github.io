@@ -1,7 +1,6 @@
 let images = [];
 let currentIndex = 0;
 let seconds_number = 2; // Duración en segundos
-let displayDuration; // Duración en milisegundos
 let lastSwitchTime = 0;
 
 function preload() {
@@ -15,7 +14,6 @@ function preload() {
 function setup() {
   createCanvas(1280, 870); // Tamaño del canvas según las dimensiones de las imágenes
   frameRate(60);
-  displayDuration = seconds_number * 1000; // Convertir segundos a milisegundos
 }
 
 function draw() {
@@ -23,6 +21,9 @@ function draw() {
 
   // Mostrar la imagen actual
   image(images[currentIndex], 0, 0, width, height);
+
+  // Convertir seconds_number a milisegundos dinámicamente
+  let displayDuration = seconds_number * 1000;
 
   // Verificar si es hora de cambiar la imagen
   if (millis() - lastSwitchTime > displayDuration) {
@@ -38,5 +39,5 @@ function keyPressed() {
   } else if (keyCode === DOWN_ARROW) {
     seconds_number = max(0.1, seconds_number - 0.1); // Disminuye la duración, mínimo 0.1 segundos
   }
-  displayDuration = seconds_number * 1000; // Actualizar la duración en milisegundos
+  console.log(`Duración actual: ${seconds_number.toFixed(1)} segundos`);
 }
