@@ -1,6 +1,6 @@
 let images = [];
 let currentIndex = 0;
-let seconds_number = 2; // Duración en segundos
+let seconds_number = 20; // Duración en segundos
 let lastSwitchTime = 0;
 
 function preload() {
@@ -28,14 +28,4 @@ function draw() {
     currentIndex = (currentIndex + 1) % images.length; // Pasar a la siguiente imagen en loop
     lastSwitchTime = millis(); // Reiniciar el temporizador
   }
-}
-
-function keyPressed() {
-  // Cambiar la duración con las teclas de flecha hacia arriba y abajo
-  if (keyCode === UP_ARROW) {
-    seconds_number += 0.1; // Incrementa la duración en 0.1 segundos
-  } else if (keyCode === DOWN_ARROW) {
-    seconds_number = max(0.1, seconds_number - 0.1); // Disminuye la duración, mínimo 0.1 segundos
-  }
-  console.log(`Duración actual: ${seconds_number.toFixed(1)} segundos`);
 }
