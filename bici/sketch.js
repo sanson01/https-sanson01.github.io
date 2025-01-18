@@ -1,7 +1,7 @@
 let images = [];
 let currentIndex = 0;
-let seconds_number = 0.1;
-let displayDuration = 1000000000000; // Duración de cada imagen en milisegundos (0.1 segundos por defecto)
+let seconds_number = 2; // Duración en segundos
+let displayDuration; // Duración en milisegundos
 let lastSwitchTime = 0;
 
 function preload() {
@@ -15,6 +15,7 @@ function preload() {
 function setup() {
   createCanvas(1280, 870); // Tamaño del canvas según las dimensiones de las imágenes
   frameRate(60);
+  displayDuration = seconds_number * 1000; // Convertir segundos a milisegundos
 }
 
 function draw() {
@@ -30,11 +31,12 @@ function draw() {
   }
 }
 
-/*function keyPressed() {
+function keyPressed() {
   // Cambiar la duración con las teclas de flecha hacia arriba y abajo
   if (keyCode === UP_ARROW) {
-    displayDuration += 50; // Incrementa la duración en 50ms
+    seconds_number += 0.1; // Incrementa la duración en 0.1 segundos
   } else if (keyCode === DOWN_ARROW) {
-    displayDuration = max(50, displayDuration - 50); // Disminuye la duración, mínimo 50ms
+    seconds_number = max(0.1, seconds_number - 0.1); // Disminuye la duración, mínimo 0.1 segundos
   }
-}*/
+  displayDuration = seconds_number * 1000; // Actualizar la duración en milisegundos
+}
