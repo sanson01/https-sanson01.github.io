@@ -1,7 +1,7 @@
 let images = [];
 let currentIndex = 0;
 let seconds_duration = 1;
-let displayDuration = seconds_duration * 1000; // Duración de cada imagen en milisegundos (0.1 segundos por defecto)
+let displayDuration = seconds_duration * 100; // Duración de cada imagen en milisegundos (0.1 segundos por defecto)
 let lastSwitchTime = 0;
 
 function preload() {
