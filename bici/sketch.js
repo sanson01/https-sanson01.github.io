@@ -1,6 +1,6 @@
 let images = [];
 let currentIndex = 0;
-let seconds_number = 1; // Duración en segundos
+let seconds_number = 2; // Duración en segundos
 let lastSwitchTime = 0;
 
 function preload() {
