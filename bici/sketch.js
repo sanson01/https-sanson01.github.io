@@ -6,7 +6,7 @@ let lastSwitchTime = 0;
 function preload() {
   // Cargar las imágenes en un array
   for (let i = 1; i <= 36; i++) {
-    let imageName = `netherlads/netherlands_${i}.jpeg`;
+    let imageName = `netherlands/netherlands_${i}.jpg`;
     images.push(loadImage(imageName));
   }
 }
