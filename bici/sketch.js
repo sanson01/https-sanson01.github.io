@@ -5,8 +5,8 @@ let lastSwitchTime = 0;
 
 function preload() {
   // Cargar las imágenes en un array
-  for (let i = 1; i <= 37; i++) {
-    let imageName = `madrid/madrid_${i}.jpeg`;
+  for (let i = 1; i <= 36; i++) {
+    let imageName = `netherlads/netherlands_${i}.jpeg`;
     images.push(loadImage(imageName));
   }
 }
@@ -14,7 +14,7 @@ function preload() {
 function setup() {
   createCanvas(1280, 870); // Tamaño del canvas según las dimensiones de las imágenes
   textAlign(CENTER, CENTER);
-  textSize(16);
+  textSize(11);
   textFont('Consolas, monospace'); // Usa Consolas, y si no está, una fuente monoespaciada genérica.
   fill(255); // Color del texto
 }
@@ -27,7 +27,7 @@ function draw() {
 
   // Mostrar el texto con el número de imagen y el contador
   let elapsedTime = (millis() - lastSwitchTime) / 1000; // Tiempo transcurrido en segundos
-  let displayText = `image ${currentIndex + 1}/37; ${elapsedTime.toFixed(1)} secs`;
+  let displayText = `${currentIndex + 1}/36; ${elapsedTime.toFixed(1)} secs`;
   text(displayText, width / 2, height - 50); // Texto centrado en la parte inferior
 
   // Verificar si es hora de cambiar la imagen
