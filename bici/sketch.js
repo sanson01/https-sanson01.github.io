@@ -14,7 +14,7 @@ function preload() {
 function setup() {
   createCanvas(1280, 870); // Tamaño del canvas según las dimensiones de las imágenes
   textAlign(LEFT, TOP);
-  textSize(11);
+  textSize(13);
   textFont('Consolas, monospace'); // Usa Consolas, y si no está, una fuente monoespaciada genérica.
   fill(255); // Color del texto
 }
@@ -72,7 +72,7 @@ function draw() {
   let elapsedTime = (millis() - lastSwitchTime) / 1000; // Tiempo transcurrido en segundos
   let displayText = `${currentIndex + 1}/36; ${elapsedTime.toFixed(1)} secs`;
   textAlign(CENTER, CENTER);
-  text(displayText, width / 2, height - 20);
+  text(displayText, width / 2, height - 50);
 
   // Verificar si es hora de cambiar la imagen
   if (millis() - lastSwitchTime > displayDuration) {
