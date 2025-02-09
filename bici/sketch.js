@@ -66,17 +66,23 @@ function draw() {
   // Mostrar la imagen actual
   image(images[currentIndex], 0, 0, width, height);
 
-  // Mostrar la lista de textos en movimiento
+  // Mostrar los textos desplazándose hacia arriba
   for (let i = 0; i < textEntries.length; i++) {
-    text(textEntries[i].text, 10, textEntries[i].y);
-    textEntries[i].y -= textOffset / displayDuration * 5000; // Desplazamiento progresivo hacia arriba
+    text(textEntries[i].text, 10, height - 50 - i * textOffset);
   }
+
+  // Mostrar el texto con el número de imagen y el contador centrado abajo
+  let elapsedTime = (millis() - lastSwitchTime) / 1000; // Tiempo transcurrido en segundos
+  let displayText = `${currentIndex + 1}/36; ${elapsedTime.toFixed(1)} secs`;
+  textAlign(CENTER, CENTER);
+  text(displayText, width / 2, height - 20);
+  textAlign(LEFT, TOP); // Restaurar alineación para otros textos
 
   // Verificar si es hora de cambiar la imagen
   if (millis() - lastSwitchTime > displayDuration) {
-    textEntries.push({ text: coordinates[currentIndex], y: height - 50 });
+    textEntries.unshift({ text: coordinates[currentIndex] }); // Agregar nuevo texto al inicio
     if (textEntries.length > 36) {
-      textEntries.shift(); // Eliminar textos que salen de la pantalla
+      textEntries.pop(); // Remover el texto más antiguo si excede 36 líneas
     }
     currentIndex = (currentIndex + 1) % images.length; // Pasar a la siguiente imagen en loop
     lastSwitchTime = millis();
