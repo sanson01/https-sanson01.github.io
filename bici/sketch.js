@@ -1,7 +1,10 @@
 let images = [];
 let currentIndex = 0;
-let displayDuration = 5000; // Duración en milisegundos (5 segundos por defecto)
+let baseDuration = 1000; // 1 segundo en milisegundos
+let maxDuration = 1300000; // 1300 segundos en milisegundos
 let lastSwitchTime = 0;
+let loopCount = 0;
+let displayDuration = baseDuration;
 
 function preload() {
   // Cargar las imágenes en un array
@@ -78,5 +81,11 @@ function draw() {
   if (millis() - lastSwitchTime > displayDuration) {
     currentIndex = (currentIndex + 1) % images.length; // Pasar a la siguiente imagen en loop
     lastSwitchTime = millis();
+
+    // Si hemos completado un ciclo de 36 imágenes, duplicar la duración hasta el límite
+    if (currentIndex === 0) {
+      displayDuration = min(displayDuration * 2, maxDuration);
+      loopCount++;
+    }
   }
 }
