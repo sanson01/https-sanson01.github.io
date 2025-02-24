@@ -1,6 +1,6 @@
 let images = [];
 let currentIndex = 0;
-let baseDuration = 1000; // 1 segundo en milisegundos
+let baseDuration = 100; // 0.1 segundo en milisegundos
 let maxDuration = 1300000; // 1300 segundos en milisegundos
 let lastSwitchTime = 0;
 let loopCount = 0;
@@ -49,7 +49,7 @@ let coordinates = [
   "52.26131144589651, 5.565904988735405",
   "52.264479205520765, 5.5021432115387485",
   "52.26086147611923, 5.455286617314808",
-  "52.26086147611923, 5.455286617314808",
+  "52.27518036965909, 5.367452183203269",
   "52.26086147611923, 5.455286617314808",
   "52.315733698748154, 5.28891429619626",
   "52.33190556775292, 5.2265348645274825",
@@ -61,6 +61,84 @@ let coordinates = [
   "52.368999780511224, 4.8847377156703615"
 ];
 
+let locationInfo = [
+  "Enschede, Netherlands",
+  "Enschede, Netherlands",
+  "Hengelo, Netherlands",
+  "Delden, Netherlands",
+  "Delden, Netherlands",
+  "Bornerbroek, Netherlands",
+  "Enter, Netherlands",
+  "Rijssen, Netherlands",
+  "Rijssen, Netherlands",
+  "Holten, Netherlands",
+  "Dijkerhoek, Netherlands",
+  "Apenhuizen, Netherlands",
+  "Colmschate, Netherlands",
+  "Deventer, Netherlands",
+  "Twello, Netherlands",
+  "Teuge, Netherlands",
+  "Apeldoorn, Netherlands",
+  "Apeldoorn, Netherlands",
+  "Hoog Soeren, Netherlands",
+  "Ouwendorp, Netherlands",
+  "Garderen, Netherlands",
+  "Garderen, Netherlands",
+  "Putten, Netherlands",
+  "Bijsteren, Netherlands",
+  "Nijkerk, Netherlands",
+  "Zeewolde, Netherlands",
+  "Zeewolde, Netherlands",
+  "Almere, Netherlands",
+  "Almere Haven, Netherlands",
+  "Almere, Netherlands",
+  "Muiden, Netherlands",
+  "Muiden, Netherlands",
+  "Reiteland-Oost, Netherlands",
+  "Zeeburg, Netherlands",
+  "Amsterdam, Netherlands",
+  "Amsterdam, Netherlands"
+];
+
+let timestamps = [
+  "21-01-25 06:20 hs",
+  "21-01-25 06:38 hs",
+  "21-01-25 06:56 hs",
+  "21-01-25 07:15 hs",
+  "21-01-25 07:32 hs",
+  "21-01-25 07:49 hs",
+  "21-01-25 08:06 hs",
+  "21-01-25 08:24 hs",
+  "21-01-25 08:47 hs",
+  "21-01-25 09:17 hs",
+  "21-01-25 09:36 hs",
+  "21-01-25 09:53 hs",
+  "21-01-25 10:12 hs",
+  "21-01-25 10:32 hs",
+  "21-01-25 10:59 hs",
+  "21-01-25 11:19 hs",
+  "21-01-25 11:40 hs",
+  "21-01-25 12:00 hs",
+  "21-01-25 12:27 hs",
+  "21-01-25 13:03 hs",
+  "21-01-25 13:22 hs",
+  "21-01-25 13:38 hs",
+  "21-01-25 13:55 hs",
+  "21-01-25 14:14 hs",
+  "21-01-25 15:05 hs",
+  "21-01-25 15:17 hs",
+  "21-01-25 15:23 hs",
+  "21-01-25 16:09 hs",
+  "21-01-25 16:27 hs",
+  "21-01-25 16:40 hs",
+  "21-01-25 16:55 hs",
+  "21-01-25 17:01 hs",
+  "21-01-25 17:31 hs",
+  "21-01-25 17:45 hs",
+  "21-01-25 18:46 hs",
+  "21-01-25 19:15 hs"
+];
+
 function draw() {
   background(0); // Fondo negro
 
@@ -70,6 +148,9 @@ function draw() {
   // Mostrar las coordenadas en la parte inferior izquierda con margen adicional
   textAlign(LEFT, TOP);
   text(coordinates[currentIndex], 30, height - 50);
+  text(locationInfo[currentIndex], 30, height - 30);
+  textAlign(RIGHT, TOP);
+  text(timestamps[currentIndex], width - 30, height - 30);
 
   // Mostrar el texto con el número de imagen y el contador centrado abajo
   let elapsedTime = (millis() - lastSwitchTime) / 1000; // Tiempo transcurrido en segundos
