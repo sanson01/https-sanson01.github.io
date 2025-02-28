@@ -139,18 +139,30 @@ let timestamps = [
 ];
 
 function draw() {
-  background(0);
+  background(0); // Fondo negro
+
+  // Mostrar la imagen actual
   image(images[currentIndex], 0, 0, width, height);
+
+  // Mostrar las coordenadas en la parte inferior izquierda con margen adicional
   textAlign(LEFT, TOP);
   text(coordinates[currentIndex], 30, height - 50);
   text(locationInfo[currentIndex], 30, height - 30);
   textAlign(RIGHT, TOP);
   text(timestamps[currentIndex], width - 30, height - 30);
+
+  // Mostrar el texto con el número de imagen y el contador centrado abajo
+  let elapsedTime = (millis() - lastSwitchTime) / 1000; // Tiempo transcurrido en segundos
+  let displayText = `${currentIndex + 1}/36; ${elapsedTime.toFixed(1)} secs`;
   textAlign(CENTER, CENTER);
-  text(`${currentIndex + 1}/36`, width / 2, height - 50);
+  text(displayText, width / 2, height - 50);
+
+  // Verificar si es hora de cambiar la imagen
   if (millis() - lastSwitchTime > displayDuration) {
-    currentIndex = (currentIndex + 1) % images.length;
+    currentIndex = (currentIndex + 1) % images.length; // Pasar a la siguiente imagen en loop
     lastSwitchTime = millis();
+
+    // Si hemos completado un ciclo de 36 imágenes, duplicar la duración hasta el límite
     if (currentIndex === 0) {
       displayDuration = min(displayDuration * 2, maxDuration);
       loopCount++;
