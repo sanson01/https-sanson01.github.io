@@ -9,7 +9,7 @@ let displayDuration = baseDuration;
 function preload() {
   // Cargar las imágenes en un array
   for (let i = 1; i <= 36; i++) {
-    let imageName = `netherlands/netherlands_${i}.jpg`;
+    let imageName = `netherlands/netherlands_${i}.jpeg`;
     images.push(loadImage(imageName));
   }
 }

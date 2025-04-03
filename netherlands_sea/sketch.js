@@ -8,7 +8,7 @@ let displayDuration = baseDuration;
 
 function preload() {
   for (let i = 1; i <= 36; i++) {
-    let imageName = `netherlands_sea/netherlands_sea_${i}.jpg`;
+    let imageName = `netherlands_sea/netherlands_sea_${i}.jpeg`;
     images.push(loadImage(imageName));
   }
 }
